@@ -4,7 +4,7 @@
 900 - 1200px:   Tablet landscape
 [1200 - 1800] is where our normal styles apply
 1800px + :      Big desktop
-$breakpoint arguement choices:
+$breakpoint argument choices:
 - phone
 - tab-port
 - tab-land
@@ -18,20 +18,41 @@ Inside media queries 1em is always 16px i.e 1em = 16px at every screen size only
   margin: 0;
   padding: 0;
   box-sizing: inherit;
-  font-family: inherit; }
+  font-family: inherit;
+}
 
 html {
   font-size: 62.5%;
-  scroll-behavior: smooth; }
-  @media only screen and (max-width: 75em) {
-    html {
-      font-size: 59%; } }
-  @media only screen and (max-width: 56.25em) {
-    html {
-      font-size: 56%; } }
-  @media only screen and (min-width: 112.5em) {
-    html {
-      font-size: 65%; } }
+  scroll-behavior: smooth;
+}
+
+@media only screen and (max-width: 37.5em) { /* Phone */
+  html {
+    font-size: 56%;
+  }
+}
+
+@media only screen and (min-width: 37.5em) and (max-width: 56.25em) { /* Tablet Portrait */
+  html {
+    font-size: 56%;
+  }
+}
+
+@media only screen and (min-width: 56.25em) and (max-width: 75em) { /* Tablet Landscape */
+  html {
+    font-size: 59%;
+  }
+}
+
+@media only screen and (min-width: 75em) and (max-width: 112.5em) { /* Normal styles apply */
+  /* No font-size adjustment here */
+}
+
+@media only screen and (min-width: 112.5em) { /* Big Desktop */
+  html {
+    font-size: 65%;
+  }
+}
 
 body {
   box-sizing: border-box;
@@ -40,7 +61,11 @@ body {
   font-family: sans-serif;
   overflow-x: hidden;
   overflow-y: scroll;
-  font-family: 'Source Sans Pro', sans-serif; }
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Rest of your CSS rules... */
+
 
 a {
   text-decoration: none;
