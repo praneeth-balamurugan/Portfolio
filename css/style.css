@@ -304,7 +304,9 @@ textarea {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   grid-gap: 5rem;
-  margin-bottom: 11rem; }
+  margin-bottom: 11rem;
+   
+}
   @media only screen and (max-width: 56.25em) {
     .projects__row {
       grid-template-columns: 1fr;
