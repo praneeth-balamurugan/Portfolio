@@ -729,3 +729,217 @@ textarea {
   to {
     opacity: 0;
     top: 27px; } }
+/* Education Section Styles */
+.education {
+  background-color: #f9f9f9;
+  padding: 60px 0;
+}
+
+.education__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.education__item {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.education__degree {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.education__university,
+.education__provider {
+  color: #666;
+}
+.education__item {
+  position: relative; /* Positioning context for absolute positioning */
+}
+
+.education__icon-container {
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+  border: 2px solid #007bff; /* Blue color border */
+  border-radius: 50%; /* Makes the container circular */
+  position: absolute; /* Position absolutely */
+  top: -25px; /* Position above the text */
+  left: 10px; /* Adjust as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.education__icon-container i {
+  color: #007bff; /* Blue color for the icon */
+  font-size: 24px; /* Adjust size as needed */
+}
+
+
+.education__icon-container {
+  background-color: #007bff; /* Blue color */
+  width: 50px; /* Adjust size as needed */
+  height: 50px; /* Adjust size as needed */
+  border-radius: 50%; /* Makes the container circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px; /* Adjust spacing as needed */
+}
+
+.education__icon-container i {
+  color: white; /* Icon color */
+  font-size: 24px; /* Adjust size as needed */
+}
+
+.footer-container {
+  width: 100%;
+  margin-top: 15%;
+}
+
+.footer-line-container {
+  height: 0.5vh;
+  width: 100%;
+  background-color:  #007bff;
+}
+
+.footer-detail-container {
+  width: 100%;
+  background-color: #1e1f30;
+}
+
+.footer-name-container {
+  width: 100%;
+  padding-top: 3%;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 600;
+  color:  #007bff;
+  letter-spacing: 0.3rem;
+}
+
+.footer-nav-container {
+  width: 60%;
+  margin: 3% auto;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  color: #ffffff;
+}
+
+.nav-link {
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 1rem;
+  background: none;
+  border: 1px solid #ffffff;
+  border-radius: 50px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color:  #007bff;
+  border: 1px solid  #0559b4;
+}
+
+.social-media-container2 {
+  margin: 3% auto;
+}
+
+.social-media-container2 a i {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-left: 1%;
+}
+
+.footer-mail-container,
+.footer-phone-container {
+  margin-bottom: 0.5%;
+  color: #007bff;
+  font-size: 1rem;
+}
+
+.footer-mail-container span,
+.footer-phone-container span {
+  margin-left: 0.3%;
+}
+
+.footer-copyright-container {
+  margin-top: 3%;
+  padding-bottom: 5%;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 800px) {
+  .footer-nav-container {
+      height: 40vh;
+      margin: 2% auto;
+      flex-direction: column;
+  }
+  .nav-link {
+      border: none;
+      padding: 0%;
+      margin-bottom: 25%;
+      align-items: center;
+  }
+  .nav-link:hover {
+      border: none;
+      border-radius: 0px;
+      padding-bottom: 5%;
+      border-bottom: 2px solid #0761c1;
+      transition: all 0.3s;
+  }
+  .social-media-container2 {
+      margin: 5% auto;
+  }
+  .social-media-container2 a i {
+      margin-left: 5%;
+  }
+  .footer-copyright-container {
+      margin-top: 10%;
+      padding-bottom: 15%;
+  }
+  .footer-mail-container {
+      margin-top: 10%;
+  }
+  .footer-phone-container {
+      margin-top: 3%;
+  }
+}
+.social-media-container2 {
+  margin: 3% auto; /* Center horizontally */
+  text-align: center; /* Center the icons */
+}
+
+.social-media-container2 a i {
+  font-size: 3rem; /* Increased icon size */
+  margin: 0 20px; /* Adjusted margin for spacing between icons */
+  color: #fff; /* Default color */
+  transition: color 0.3s; /* Smooth transition */
+}
+
+.social-media-container2 a i:hover {
+  color: #007bff; /* Blue color on hover */
+}
+
+.footer-mail-container,
+.footer-phone-container,
+.footer-copyright-container {
+    text-align: center; /* Center the content */
+    font-size: 1.5rem; /* Increased font size */
+    margin-top: 10px; /* Adjusted margin */
+}
+
+.footer-mail-container i,
+.footer-phone-container i,
+.footer-copyright-container i {
+    font-size: 2rem; /* Increased icon size */
+    margin-right: 10px; /* Adjusted margin */
+}
