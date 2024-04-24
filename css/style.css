@@ -26,7 +26,7 @@ html {
   scroll-behavior: smooth;
 }
 
-@media only screen and (max-width: 37.5em) { /* Phone */
+@media only screen and (max-width: 37.8em) { /* Phone */
   html {
     font-size: 56%;
   }
@@ -53,6 +53,25 @@ html {
     font-size: 65%;
   }
 }
+
+/* Small Desktop */
+@media only screen and (min-width: 75em) and (max-width: 90em) {
+  html {
+    font-size: 62%; /* Adjust as needed */
+  }
+}
+/* Adjust button size and spacing for smaller screens */
+@media only screen and (max-width: 1141px) {
+  .projects__row-content {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+  }
+  
+  .projects__row-content .btn {
+    margin-top: 20px; /* Add margin between buttons */
+  }
+}
+
 
 body {
   box-sizing: border-box;
@@ -942,4 +961,92 @@ textarea {
 .footer-copyright-container i {
     font-size: 2rem; /* Increased icon size */
     margin-right: 10px; /* Adjusted margin */
+}
+
+/* Add this CSS to your existing style.css file or create a new one */
+
+/* Tech Stack Section */
+.tech-stack {
+  background-color: #f8f9fa;
+  padding: 80px 0;
+}
+
+.tech-stack__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tech-stack__item {
+  margin: 20px;
+  text-align: center;
+}
+
+.tech-stack__logo {
+  width: 100px; /* Adjust size as needed */
+  height: auto;
+}
+
+.tech-stack__name {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Hover Effect */
+.tech-stack__item:hover .tech-stack__logo {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.tech-stack__item:hover .tech-stack__name {
+  color: #007bff;
+}
+/* Add this CSS to your existing style.css file or create a new one */
+
+/* Tech Stack Section */
+.tech-stack {
+  background-color: #f8f9fa;
+  padding: 80px 0;
+}
+
+.tech-stack__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tech-stack__item {
+  margin: 20px;
+  text-align: center;
+}
+
+.tech-stack__logo {
+  width: 100px; /* Adjust size as needed */
+  height: auto;
+  animation: flipLogo 3s infinite alternate; /* Define animation */
+}
+
+.tech-stack__name {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Animation */
+@keyframes flipLogo {
+  0% {
+    transform: scaleX(1); /* Initial position */
+  }
+  50% {
+    transform: scaleX(-1); /* Flipped position */
+  }
+  100% {
+    transform: scaleX(1); /* Back to original position */
+  }
+}
+
+/* Hover Effect */
+.tech-stack__item:hover .tech-stack__name {
+  color: #007bff;
 }
