@@ -147,7 +147,7 @@ textarea {
     top: calc(100% + 1.5rem);
     height: 5px;
     width: 3rem;
-    background: #0062b9;
+    background: #a093be;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 5px; }
@@ -199,12 +199,12 @@ textarea {
     padding: 1.5rem 5rem;
     font-size: 1.6rem; }
   .btn--theme {
-    background: #0062b9;
+    background: #a093be;
     color: #fff; }
   .btn--theme-inv {
-    color: #0062b9;
+    color: #a093be;
     background: #fff;
-    border: 2px solid #0062b9;
+    border: 2px solid #a093be;
     box-shadow: none;
     padding: calc(1.5rem - 2px) calc(5rem - 2px); }
 
@@ -369,7 +369,7 @@ textarea {
           font-size: 1.7rem; } }
 
 .contact {
-  background: linear-gradient(to right, rgba(0, 98, 185, 0.8), rgba(0, 98, 185, 0.8)), url(../../assets/svg/common-bg.svg);
+  background: linear-gradient(to right, rgba(160, 147, 190, 0.8), rgba(168, 197, 223, 0.8)), url(../../assets/svg/common-bg.svg);
   background-size: cover;
   background-position: center; }
   .contact__form-container {
@@ -450,7 +450,7 @@ textarea {
 
 .project-cs-hero {
   color: #fff;
-  background: linear-gradient(to right, rgba(0, 98, 185, 0.8), rgba(0, 98, 185, 0.8)), url(../../assets/svg/common-bg.svg);
+  background: linear-gradient(to right, rgba(160, 147, 190, 0.8), rgba(168, 197, 223, 0.8)), url(../../assets/svg/common-bg.svg);
   background-size: cover;
   background-position: center;
   position: relative; }
@@ -568,7 +568,9 @@ textarea {
     border-radius: 50px;
     overflow: hidden;
     margin-right: 1.5rem;
-    background: #0062b9; }
+    background: #a093be;
+    opacity: 0.8;
+   }
     @media only screen and (max-width: 56.25em) {
       .header__logo-img-cont {
         width: 4.5rem;
@@ -600,7 +602,8 @@ textarea {
     font-weight: 700;
     transition: color .3s; }
     .header__link:hover {
-      color: #0062b9; }
+      color: #a093be;
+     }
     @media only screen and (max-width: 56.25em) {
       .header__link {
         padding: 3rem 1.8rem;
@@ -647,7 +650,7 @@ textarea {
     letter-spacing: 2px;
     transition: color .3s; }
     .header__sm-menu-link a:hover {
-      color: #0062b9; }
+      color:#a093be; }
   .header__sm-menu-link:first-child a {
     border-top: 1px solid #eee; }
   .header__sm-menu-link-last {
@@ -783,7 +786,7 @@ textarea {
 .education__icon-container {
   width: 50px; /* Adjust size as needed */
   height: 50px; /* Adjust size as needed */
-  border: 2px solid #007bff; /* Blue color border */
+  border: 2px solid #a093be; /* Blue color border */
   border-radius: 50%; /* Makes the container circular */
   position: absolute; /* Position absolutely */
   top: -25px; /* Position above the text */
@@ -794,13 +797,13 @@ textarea {
 }
 
 .education__icon-container i {
-  color: #007bff; /* Blue color for the icon */
+  color: #a093be; /* Blue color for the icon */
   font-size: 24px; /* Adjust size as needed */
 }
 
 
 .education__icon-container {
-  background-color: #007bff; /* Blue color */
+  background-color: #a093be; /* Blue color */
   width: 50px; /* Adjust size as needed */
   height: 50px; /* Adjust size as needed */
   border-radius: 50%; /* Makes the container circular */
@@ -823,8 +826,8 @@ textarea {
 .footer-line-container {
   height: 0.5vh;
   width: 100%;
-  background-color:  #007bff;
-}
+  background: #a093be;
+  opacity: 0.8;}
 
 .footer-detail-container {
   width: 100%;
@@ -837,7 +840,7 @@ textarea {
   text-align: center;
   font-size: 4rem;
   font-weight: 600;
-  color:  #007bff;
+  color:  #a093be;
   letter-spacing: 0.3rem;
 }
 
@@ -863,8 +866,8 @@ textarea {
 }
 
 .nav-link:hover {
-  color:  #007bff;
-  border: 1px solid  #0559b4;
+  color:  #a093be;
+  border: 1px solid  #8577a3;
 }
 
 .social-media-container2 {
@@ -880,7 +883,7 @@ textarea {
 .footer-mail-container,
 .footer-phone-container {
   margin-bottom: 0.5%;
-  color: #007bff;
+  color: #a093be;
   font-size: 1rem;
 }
 
@@ -912,7 +915,7 @@ textarea {
       border: none;
       border-radius: 0px;
       padding-bottom: 5%;
-      border-bottom: 2px solid #0761c1;
+      border-bottom: 2px solid #a093be;
       transition: all 0.3s;
   }
   .social-media-container2 {
@@ -945,7 +948,7 @@ textarea {
 }
 
 .social-media-container2 a i:hover {
-  color: #007bff; /* Blue color on hover */
+  color: #a093be; /* Blue color on hover */
 }
 
 .footer-mail-container,
@@ -1000,7 +1003,7 @@ textarea {
 }
 
 .tech-stack__item:hover .tech-stack__name {
-  color: #007bff;
+  color: #a093be;
 }
 /* Add this CSS to your existing style.css file or create a new one */
 
@@ -1048,5 +1051,5 @@ textarea {
 
 /* Hover Effect */
 .tech-stack__item:hover .tech-stack__name {
-  color: #007bff;
+  color: #a093be;
 }
