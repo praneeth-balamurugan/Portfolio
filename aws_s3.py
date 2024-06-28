@@ -4,7 +4,7 @@ import boto3
 
 def main():
     directory = '.'
-    bucket_name = 'praneeth-portfolio-aws'
+    bucket_name = 'test-bucker-bp1234'
     
     aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
     aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY')

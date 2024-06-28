@@ -3,11 +3,18 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "mybucket" {
-  bucket = "test-bucker-bp123"
+  bucket = "test-bucker-bp1234"
+}
 
-  website {
-    index_document = "index.html"
-    error_document = "error.html"
+resource "aws_s3_bucket_website_configuration" "mybucket_website" {
+  bucket = aws_s3_bucket.mybucket.bucket
+
+  index_document {
+    suffix = "index.html"
+  }
+
+  error_document {
+    key = "error.html"
   }
 }
 
@@ -53,3 +60,4 @@ resource "aws_s3_bucket_policy" "mybucket_policy" {
     ]
   })
 }
+
