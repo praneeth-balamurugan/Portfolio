@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "mybucket" {
-  bucket = "test-bucker-bp1234"
+  bucket = "teraform-final-09876"
 }
 
 resource "aws_s3_bucket_website_configuration" "mybucket_website" {
