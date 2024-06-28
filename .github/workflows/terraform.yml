@@ -1,37 +1,62 @@
-name: Terraform Deploy to S3
+provider "aws" {
+  region = "ap-south-1"
+}
 
-on:
-  push:
-    branches:
-      - main
+resource "aws_s3_bucket" "mybucket" {
+  bucket = "test-bucker-bp1234"
+}
 
-jobs:
-  terraform:
-    runs-on: ubuntu-latest
+resource "aws_s3_bucket_website_configuration" "mybucket_website" {
+  bucket = aws_s3_bucket.mybucket.bucket
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+  index_document {
+    suffix = "index.html"
+  }
 
-    - name: Set up Terraform
-      uses: hashicorp/setup-terraform@v1
+  error_document {
+    key = "error.html"
+  }
+}
 
-    - name: Terraform Init
-      run: terraform init
+resource "aws_s3_bucket_ownership_controls" "example" {
+  bucket = aws_s3_bucket.mybucket.id
 
-    - name: Terraform Apply
-      env:
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      run: terraform apply -auto-approve
+  rule {
+    object_ownership = "BucketOwnerPreferred"
+  }
+}
 
-    - name: Trigger Python Deploy Pipeline
-      uses: actions/github-script@v6
-      with:
-        script: |
-          github.rest.actions.createWorkflowDispatch({
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            workflow_id: 'main.yml', # Change this to your Python pipeline filename
-            ref: 'main'
-          })
+resource "aws_s3_bucket_public_access_block" "example" {
+  bucket = aws_s3_bucket.mybucket.id
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+
+resource "aws_s3_bucket_acl" "example" {
+  depends_on = [
+    aws_s3_bucket_ownership_controls.example,
+    aws_s3_bucket_public_access_block.example,
+  ]
+
+  bucket = aws_s3_bucket.mybucket.id
+  acl    = "public-read"
+}
+
+resource "aws_s3_bucket_policy" "mybucket_policy" {
+  bucket = aws_s3_bucket.mybucket.id
+
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Principal = "*"
+        Action = "s3:GetObject"
+        Resource = "${aws_s3_bucket.mybucket.arn}/*"
+      }
+    ]
+  })
+}
