@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    steps:
+    steps:a
     - name: Checkout repository
       uses: actions/checkout@v2
 
