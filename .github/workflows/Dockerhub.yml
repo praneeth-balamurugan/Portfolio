@@ -33,5 +33,3 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/my-portfolio:${{ env.TAG }}
 
-      - name: Output the tag
-        run: echo "Docker image tagged with: ${{ env.TAG }}"
