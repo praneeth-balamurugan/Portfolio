@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main 
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -41,9 +40,11 @@ jobs:
       run: echo ${{ env.NEW_VERSION }} > version.txt
 
     - name: Commit updated version file
+      env:
+        GH_PAT: ${{ secrets.GH_PAT }}
       run: |
         git config --global user.name 'praneeth-balamurugan'
         git config --global user.email 'praneeth.nkl@gmail.com'
         git add version.txt
         git commit -m "Increment version to ${{ env.NEW_VERSION }}"
-        git push
+        git push https://$GH_PAT@github.com/praneeth-balamurugan/Portfolio.git HEAD:main
