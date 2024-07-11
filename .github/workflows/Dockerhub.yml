@@ -3,7 +3,8 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main 
+      - main # or the branch you want to track
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,30 +22,16 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    - name: Read current version
-      id: read_version
-      run: echo "CURRENT_VERSION=$(cat version.txt)" >> $GITHUB_ENV
-
-    - name: Increment version
-      id: increment_version
-      run: echo "NEW_VERSION=$((CURRENT_VERSION + 1))" >> $GITHUB_ENV
+    - name: Generate random tag
+      id: random_tag
+      run: echo "TAG=$(date +%s)" >> $GITHUB_ENV
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v2
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/my-portfolio:${{ env.NEW_VERSION }}
+        tags: ${{ secrets.DOCKER_USERNAME }}/my-portfolio:${{ env.TAG }}
 
-    - name: Update version file
-      run: echo ${{ env.NEW_VERSION }} > version.txt
-
-    - name: Commit updated version file
-      env:
-        GH_PAT: ${{ secrets.GH_PAT }}
-      run: |
-        git config --global user.name 'praneeth-balamurugan'
-        git config --global user.email 'praneeth.nkl@gmail.com'
-        git add version.txt
-        git commit -m "Increment version to ${{ env.NEW_VERSION }}"
-        git push https://$GH_PAT@github.com/praneeth-balamurugan/Portfolio.git HEAD:main
+    - name: Output the tag
+      run: echo "Docker image tagged with: ${{ env.TAG }}"
