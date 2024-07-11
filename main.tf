@@ -1,31 +1,18 @@
 provider "aws" {
-  region = "ap-south-1"
-}
-
-data "aws_s3_bucket" "existing_bucket" {
-  bucket = "terraform-pre-098765"
-  count  = length([for b in try(aws_s3_bucket.existing_bucket.bucket, []) : b]) > 0 ? 1 : 0
+  region = "us-east-1" 
 }
 
 resource "aws_s3_bucket" "mybucket" {
-  count  = length(data.aws_s3_bucket.existing_bucket.id) == 0 ? 1 : 0
-  bucket = "terraform-pre-098765"
-}
+  bucket = "praneeth-portfolio-aws"
 
-resource "aws_s3_bucket_website_configuration" "mybucket_website" {
-  bucket = length(data.aws_s3_bucket.existing_bucket.id) == 0 ? aws_s3_bucket.mybucket[0].bucket : data.aws_s3_bucket.existing_bucket.bucket
-
-  index_document {
-    suffix = "index.html"
-  }
-
-  error_document {
-    key = "error.html"
+  website {
+    index_document = "index.html"
+    error_document = "error.html"
   }
 }
 
 resource "aws_s3_bucket_ownership_controls" "example" {
-  bucket = length(data.aws_s3_bucket.existing_bucket.id) == 0 ? aws_s3_bucket.mybucket[0].id : data.aws_s3_bucket.existing_bucket.id
+  bucket = aws_s3_bucket.mybucket.id
 
   rule {
     object_ownership = "BucketOwnerPreferred"
@@ -33,7 +20,7 @@ resource "aws_s3_bucket_ownership_controls" "example" {
 }
 
 resource "aws_s3_bucket_public_access_block" "example" {
-  bucket = length(data.aws_s3_bucket.existing_bucket.id) == 0 ? aws_s3_bucket.mybucket[0].id : data.aws_s3_bucket.existing_bucket.id
+  bucket = aws_s3_bucket.mybucket.id
 
   block_public_acls       = false
   block_public_policy     = false
@@ -47,12 +34,12 @@ resource "aws_s3_bucket_acl" "example" {
     aws_s3_bucket_public_access_block.example,
   ]
 
-  bucket = length(data.aws_s3_bucket.existing_bucket.id) == 0 ? aws_s3_bucket.mybucket[0].id : data.aws_s3_bucket.existing_bucket.id
+  bucket = aws_s3_bucket.mybucket.id
   acl    = "public-read"
 }
 
 resource "aws_s3_bucket_policy" "mybucket_policy" {
-  bucket = length(data.aws_s3_bucket.existing_bucket.id) == 0 ? aws_s3_bucket.mybucket[0].id : data.aws_s3_bucket.existing_bucket.id
+  bucket = aws_s3_bucket.mybucket.id
 
   policy = jsonencode({
     Version = "2012-10-17"
@@ -61,7 +48,7 @@ resource "aws_s3_bucket_policy" "mybucket_policy" {
         Effect = "Allow"
         Principal = "*"
         Action = "s3:GetObject"
-        Resource = "${length(data.aws_s3_bucket.existing_bucket.id) == 0 ? aws_s3_bucket.mybucket[0].arn : data.aws_s3_bucket.existing_bucket.arn}/*"
+        Resource = "${aws_s3_bucket.mybucket.arn}/*"
       }
     ]
   })

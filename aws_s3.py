@@ -4,7 +4,7 @@ import boto3
 
 def main():
     directory = '.'
-    bucket_name = 'teraform-pre-098765'
+    bucket_name = 'praneeth-portfolio-aws'
     
     aws_access_key_id = os.getenv('AWS_ACCESS_KEY_ID')
     aws_secret_access_key = os.getenv('AWS_SECRET_ACCESS_KEY')
